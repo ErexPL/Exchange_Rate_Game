@@ -1,3 +1,3 @@
-# Conversion_Rate_Game
+# Exchange_Rate_Game
 
 A fun little project with AJAX and currencies
