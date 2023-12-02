@@ -12,15 +12,17 @@ function createSections(xml) {
   const x = xmlDoc.getElementsByTagName("item");
 
   let itemIndex = Math.floor(Math.random() * x.length);
+  let baseName1 = x[itemIndex].getElementsByTagName("baseName")[0].childNodes[0].nodeValue;
   let targetName1 = x[itemIndex].getElementsByTagName("targetName")[0].childNodes[0].nodeValue;
   let exchangeRate1 = x[itemIndex].getElementsByTagName("exchangeRate")[0].childNodes[0].nodeValue;
-  let text1 = "Polish Zloty --> " + targetName1 + " | " + exchangeRate1;
+  let text1 = baseName1 + " --> " + targetName1 + " | " + exchangeRate1;
   document.getElementById("option1").innerHTML = text1;
 
   itemIndex = Math.floor(Math.random() * x.length);
+  let baseName2 = x[itemIndex].getElementsByTagName("baseName")[0].childNodes[0].nodeValue;
   let targetName2 = x[itemIndex].getElementsByTagName("targetName")[0].childNodes[0].nodeValue;
   let exchangeRate2 = x[itemIndex].getElementsByTagName("exchangeRate")[0].childNodes[0].nodeValue;
-  let text2 = "Polish Zloty --> " + targetName2 + " | " + exchangeRate2;
+  let text2 = baseName2 + " --> " + targetName2 + " | " + exchangeRate2;
   document.getElementById("option2").innerHTML = text2;
 }
 
@@ -47,9 +49,10 @@ function moveSections(xml) {
   let sectionRight = document.getElementById("3");
 
   let itemIndex = Math.floor(Math.random() * x.length);
+  let baseName3 = x[itemIndex].getElementsByTagName("baseName")[0].childNodes[0].nodeValue;
   let targetName3 = x[itemIndex].getElementsByTagName("targetName")[0].childNodes[0].nodeValue;
   let exchangeRate3 = x[itemIndex].getElementsByTagName("exchangeRate")[0].childNodes[0].nodeValue;
-  let text3 = "Polish Zloty --> " + targetName3 + " | " + exchangeRate3;
+  let text3 = baseName3 + " --> " + targetName3 + " | " + exchangeRate3;
   document.getElementById("option3").innerHTML = text3;
   
   sectionLeft.remove();
