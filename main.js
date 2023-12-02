@@ -22,7 +22,7 @@ function sendRequest() {
     'zar', 'iqd', 'uzs', 'kwd', 'thb', 'twd', 'tjs', 'omr', 'ils', 'pen'
   ];
 
-  xhttp.open("GET", "https://www.floatrates.com/daily/" + currencies[0] + ".xml");
+  xhttp.open("GET", "https://www.floatrates.com/daily/" + currencies[Math.floor(Math.random() * currencies.length)] + ".xml");
   xhttp.send();
 }
 
