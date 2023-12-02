@@ -1,6 +1,8 @@
 let firstRequestBool = true;
 let animation = null;
 
+sendRequest();
+
 function sendRequest() {
   const xhttp = new XMLHttpRequest();
   xhttp.onload = function() {
