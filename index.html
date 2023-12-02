@@ -10,12 +10,14 @@
         <h1>Conversion Rate Game</h1>
         <button onclick="this.parentElement.remove()">Start</button>
     </header>
-    <main onclick="sendRequest()" id="main">
+    <main id="main">
         <section id="1">
             <p id="option1"></p>
         </section>
         <section id="2">
             <p id="option2"></p>
+            <button id="higher" onclick="sendRequest(), removeElement(0), this.remove()">Higher</button>
+            <button id="lower" onclick="sendRequest(), removeElement(1), this.remove()">Lower</button>
         </section>
         <section id="3">
             <p id="option3"></p>

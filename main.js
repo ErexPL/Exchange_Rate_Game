@@ -83,10 +83,21 @@ function slideLeft(main) {;
       p2.id = "option1";
       sectionRight.id = "2";
       p3.id = "option2";
+      sectionRight.innerHTML += '<button id="higher" onclick="sendRequest(), removeElement(0), this.remove()">Higher</button><button id="lower" onclick="sendRequest(), removeElement(1), this.remove()">Lower</button>';
       clearInterval(animation); 
     } else {
       pos--;
       main.style.left = pos + '%';
     }
   }
+}
+
+function removeElement(elementID) {
+
+  if(elementID == 1) {
+    document.getElementById('higher').remove();
+  } else if(elementID == 0) {
+    document.getElementById('lower').remove();
+  }
+
 }
