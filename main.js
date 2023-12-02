@@ -3,7 +3,19 @@ function createSectionsData() {
   xhttp.onload = function() {
     createSections(this);
   }
-  xhttp.open("GET", "https://www.floatrates.com/daily/pln.xml");
+
+  const currencies = [
+    'usd', 'eur', 'gbp', 'cad', 'jpy', 'aud', 'chf', 'clp', 'sek', 'sgd', 
+    'huf', 'uah', 'htg', 'dop', 'cny', 'isk', 'azn', 'uyu', 'ang', 'lbp', 
+    'myr', 'irr', 'jod', 'php', 'xof', 'lyd', 'rsd', 'nzd', 'try', 'ngn', 
+    'ars', 'nok', 'qar', 'czk', 'byn', 'crc', 'ves', 'bdt', 'ron', 'mdl', 
+    'pyg', 'aed', 'idr', 'mxn', 'amd', 'brl', 'inr', 'npr', 'xaf', 'kgs', 
+    'tmt', 'dkk', 'lkr', 'tnd', 'vnd', 'gel', 'pkr', 'bgn', 'rub', 'cop', 
+    'sar', 'kzt', 'pab', 'bhd', 'egp', 'krw', 'dzd', 'bob', 'hkd', 'mad', 
+    'zar', 'iqd', 'uzs', 'kwd', 'thb', 'twd', 'tjs', 'omr', 'ils', 'pen'
+  ];
+
+  xhttp.open("GET", "https://www.floatrates.com/daily/" + currencies[0] + ".xml");
   xhttp.send();
 }
 
@@ -31,7 +43,19 @@ function moveSectionsData() {
   xhttp.onload = function() {
     moveSections(this);
   }
-  xhttp.open("GET", "https://www.floatrates.com/daily/pln.xml");
+
+  const currencies = [
+    'usd', 'eur', 'gbp', 'cad', 'jpy', 'aud', 'chf', 'clp', 'sek', 'sgd', 
+    'huf', 'uah', 'htg', 'dop', 'cny', 'isk', 'azn', 'uyu', 'ang', 'lbp', 
+    'myr', 'irr', 'jod', 'php', 'xof', 'lyd', 'rsd', 'nzd', 'try', 'ngn', 
+    'ars', 'nok', 'qar', 'czk', 'byn', 'crc', 'ves', 'bdt', 'ron', 'mdl', 
+    'pyg', 'aed', 'idr', 'mxn', 'amd', 'brl', 'inr', 'npr', 'xaf', 'kgs', 
+    'tmt', 'dkk', 'lkr', 'tnd', 'vnd', 'gel', 'pkr', 'bgn', 'rub', 'cop', 
+    'sar', 'kzt', 'pab', 'bhd', 'egp', 'krw', 'dzd', 'bob', 'hkd', 'mad', 
+    'zar', 'iqd', 'uzs', 'kwd', 'thb', 'twd', 'tjs', 'omr', 'ils', 'pen'
+  ];
+
+  xhttp.open("GET", "https://www.floatrates.com/daily/" + currencies[0] + ".xml");
   xhttp.send();
 }
 
