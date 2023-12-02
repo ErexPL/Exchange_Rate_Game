@@ -24,7 +24,7 @@ header {
 
 }
 
-h1 {
+header h1 {
 
     text-align: center;
     font-size: 3vw;
@@ -46,7 +46,7 @@ header button {
 
 header button:hover {
 
-    scale: 1.05;
+    scale: 1.1;
     transition: 0.1s;
 
 }
@@ -131,10 +131,11 @@ aside {
     width: 100%;
     font-size: 0.8vw;
     z-index: -1;
+    transition: 0.2s;
 
 }
 
-#score {
+aside h1 {
     
     position: absolute;
     top: 2%;

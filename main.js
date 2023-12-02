@@ -57,6 +57,7 @@ function followingRequest(xml) {
   const xmlDoc = xml.responseXML;
   const x = xmlDoc.getElementsByTagName("item");
 
+  const aside = document.getElementById('aside');
   const main = document.getElementById('main');
   main.innerHTML += '<section id="3"><p id="option3"></p></section>';
 
@@ -76,11 +77,18 @@ function followingRequest(xml) {
   p2.innerHTML += " | " + exchangeRate2;
   let scoreText = document.getElementById("score");
   if((choice == 1 && exchangeRate2 >= exchangeRate1) || (choice == 0 && exchangeRate2 <= exchangeRate1)) {
-    console.log("1: " + exchangeRate1 + " 2: " + exchangeRate2 + " Choice:" + choice + " CORRECT");
     score += 1;
+    aside.style.backgroundColor = "green";
+    setTimeout(() => {
+      aside.style.backgroundColor = "white";
+    }, "500");
   } else {
-    console.log("1: " + exchangeRate1 + " 2: " + exchangeRate2 + " Choice:" + choice + " FALSE");
     score = 0;
+    aside.style.backgroundColor = "crimson";
+    setTimeout(() => {
+      aside.style.backgroundColor = "white";
+    }, "500");
+
   }
   scoreText.innerHTML = "Score: " + score;
   exchangeRate1 = exchangeRate2;
