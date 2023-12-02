@@ -29,6 +29,8 @@ function sendRequest() {
   xhttp.send();
 }
 
+let exchangeRate2 = null;
+
 function firstRequest(xml) {
   const xmlDoc = xml.responseXML;
   const x = xmlDoc.getElementsByTagName("item");
@@ -43,8 +45,8 @@ function firstRequest(xml) {
   itemIndex = Math.floor(Math.random() * x.length);
   let baseName2 = x[itemIndex].getElementsByTagName("baseName")[0].childNodes[0].nodeValue;
   let targetName2 = x[itemIndex].getElementsByTagName("targetName")[0].childNodes[0].nodeValue;
-  let exchangeRate2 = x[itemIndex].getElementsByTagName("exchangeRate")[0].childNodes[0].nodeValue;
-  let text2 = baseName2 + " --> " + targetName2 + " | " + exchangeRate2;
+  exchangeRate2 = x[itemIndex].getElementsByTagName("exchangeRate")[0].childNodes[0].nodeValue;
+  let text2 = baseName2 + " --> " + targetName2;
   document.getElementById("option2").innerHTML = text2;
 }
 
@@ -59,13 +61,9 @@ function followingRequest(xml) {
   let baseName3 = x[itemIndex].getElementsByTagName("baseName")[0].childNodes[0].nodeValue;
   let targetName3 = x[itemIndex].getElementsByTagName("targetName")[0].childNodes[0].nodeValue;
   let exchangeRate3 = x[itemIndex].getElementsByTagName("exchangeRate")[0].childNodes[0].nodeValue;
-  let text3 = baseName3 + " --> " + targetName3 + " | " + exchangeRate3;
+  let text3 = baseName3 + " --> " + targetName3;
   document.getElementById("option3").innerHTML = text3;
 
-  slideLeft(main);
-}
-
-function slideLeft(main) {;
   let p2 = document.getElementById("option2");
   let p3 = document.getElementById("option3");
   let sectionLeft = document.getElementById("1");
@@ -81,6 +79,8 @@ function slideLeft(main) {;
       sectionLeft.remove();
       sectionMiddle.id = "1";
       p2.id = "option1";
+      p2.innerHTML += " | " + exchangeRate2;
+      exchangeRate2 = exchangeRate3;
       sectionRight.id = "2";
       p3.id = "option2";
       sectionRight.innerHTML += '<button id="higher" onclick="sendRequest(), removeElement(0), this.remove()">Higher</button><button id="lower" onclick="sendRequest(), removeElement(1), this.remove()">Lower</button>';
