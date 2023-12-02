@@ -31,9 +31,23 @@ h1 {
 
 }
 
-button {
+header button {
 
-    width: 15%;
+    width: 10vw;
+    height: 3vw;
+    border: none;
+    border-radius: 1vw;
+    font-size: 2vw;
+    background-color:dodgerblue;
+    color: white;
+    transition: 0.1s;
+
+}
+
+header button:hover {
+
+    scale: 1.05;
+    transition: 0.1s;
 
 }
 
@@ -55,10 +69,84 @@ section {
 
 }
 
+section p {
+
+    order: 2;
+
+}
+
+section button {
+
+    margin: 3vw;
+    width: 10vw;
+    height: 3vw;
+    border: none;
+    border-radius: 1vw;
+    font-size: 2vw;
+    background-color:dodgerblue;
+    color: white;
+    transition: 0.1s;
+
+}
+
+#higher {
+
+    order: 1;
+
+}
+
+#higher:hover {
+
+    scale: 1.1;
+    background-color:green;
+    transition: 0.1s;
+
+}
+
+#lower {
+
+    order: 3;
+
+}
+
+#lower:hover {
+
+    scale: 1.1;
+    background-color:crimson;
+    transition: 0.1s;
+
+}
+
+p {
+
+    font-size: 1vw;
+    font-weight: bold;
+
+}
+
 aside {
 
     position: absolute;
+    height: 100%;
+    width: 100%;
+    font-size: 0.8vw;
+    z-index: -1;
+
+}
+
+h2 {
+    
+    position: absolute;
     top: 1%;
-    left: 1%;
+    left: 2%;
+
+}
+
+div {
+
+    position: absolute;
+    left: 50%;
+    height: 100%;
+    border: 0.3vw solid black;
 
 }

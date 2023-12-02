@@ -31,6 +31,7 @@ function sendRequest() {
   xhttp.send();
 }
 
+let exchangeRate1 = null
 let exchangeRate2 = null;
 
 function firstRequest(xml) {
@@ -40,7 +41,7 @@ function firstRequest(xml) {
   let itemIndex = Math.floor(Math.random() * x.length);
   let baseName1 = x[itemIndex].getElementsByTagName("baseName")[0].childNodes[0].nodeValue;
   let targetName1 = x[itemIndex].getElementsByTagName("targetName")[0].childNodes[0].nodeValue;
-  let exchangeRate1 = x[itemIndex].getElementsByTagName("exchangeRate")[0].childNodes[0].nodeValue;
+  exchangeRate1 = x[itemIndex].getElementsByTagName("exchangeRate")[0].childNodes[0].nodeValue;
   let text1 = baseName1 + " --> " + targetName1 + " | " + exchangeRate1;
   document.getElementById("option1").innerHTML = text1;
 
@@ -72,38 +73,37 @@ function followingRequest(xml) {
   let sectionMiddle = document.getElementById("2");
   let sectionRight = document.getElementById("3");
 
+  p2.innerHTML += " | " + exchangeRate2;
   let scoreText = document.getElementById("score");
-  if(exchangeRate3)
-  
-  if(choice == 0 && exchangeRate3 >= exchangeRate2) {
-    score += 1;
-  } else if(choice == 1 && exchangeRate3 <= exchangeRate2) {
+  if((choice == 1 && exchangeRate2 >= exchangeRate1) || (choice == 0 && exchangeRate2 <= exchangeRate1)) {
     score += 1;
   } else {
     score = 0;
   }
   scoreText.innerHTML = "Score: " + score;
+  exchangeRate1 = exchangeRate2;
+  exchangeRate2 = exchangeRate3;
 
-  let pos = 0;
-  clearInterval(animation);
-  animation = setInterval(frame, 10);
-  function frame() {
-    if (pos == -50) {
-      main.style.left = 0;
-      sectionLeft.remove();
-      sectionMiddle.id = "1";
-      p2.id = "option1";
-      p2.innerHTML += " | " + exchangeRate2;
-      exchangeRate2 = exchangeRate3;
-      sectionRight.id = "2";
-      p3.id = "option2";
-      sectionRight.innerHTML += '<button id="higher" onclick="sendRequest(), removeElement(0), this.remove()">Higher</button><button id="lower" onclick="sendRequest(), removeElement(1), this.remove()">Lower</button>';
-      clearInterval(animation); 
-    } else {
-      pos--;
-      main.style.left = pos + '%';
+  setTimeout(() => {
+    let pos = 0;
+    clearInterval(animation);
+    animation = setInterval(frame, 10);
+    function frame() {
+      if (pos == -50) {
+        main.style.left = 0;
+        sectionLeft.remove();
+        sectionMiddle.id = "1";
+        p2.id = "option1";
+        sectionRight.id = "2";
+        p3.id = "option2";
+        sectionRight.innerHTML += '<button id="higher" onclick="sendRequest(), removeElement(0), this.remove()">Higher</button><button id="lower" onclick="sendRequest(), removeElement(1), this.remove()">Lower</button>';
+        clearInterval(animation); 
+      } else {
+        pos--;
+        main.style.left = pos + '%';
+      }
     }
-  }
+  }, "2500");
 }
 
 function removeElement(elementID) {
