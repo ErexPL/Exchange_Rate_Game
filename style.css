@@ -134,8 +134,16 @@ aside {
 
 }
 
-h2 {
+#score {
     
+    position: absolute;
+    top: 5%;
+    left: 2%;
+
+}
+
+#highscore {
+
     position: absolute;
     top: 1%;
     left: 2%;

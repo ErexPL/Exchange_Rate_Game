@@ -16,8 +16,8 @@
         </section>
         <section id="2">
             <p id="option2"></p>
-            <button id="higher" onclick="sendRequest(), removeElement(0), this.remove()">Higher</button>
-            <button id="lower" onclick="sendRequest(), removeElement(1), this.remove()">Lower</button>
+            <button id="higher" onclick="pickButton(0), this.remove()">Higher</button>
+            <button id="lower" onclick="pickButton(1), this.remove()">Lower</button>
         </section>
         <section id="3">
             <p id="option3"></p>
@@ -26,6 +26,7 @@
     <aside>
         <h2 id="score">Score: 0</h2>
         <div></div>
+        <h2 id="highscore">Highscore: 0</h2>
     </aside>
     <script src="main.js"></script>
 </body>

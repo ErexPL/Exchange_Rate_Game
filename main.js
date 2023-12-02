@@ -31,7 +31,7 @@ function sendRequest() {
   xhttp.send();
 }
 
-let exchangeRate1 = null
+let exchangeRate1 = null;
 let exchangeRate2 = null;
 
 function firstRequest(xml) {
@@ -76,8 +76,10 @@ function followingRequest(xml) {
   p2.innerHTML += " | " + exchangeRate2;
   let scoreText = document.getElementById("score");
   if((choice == 1 && exchangeRate2 >= exchangeRate1) || (choice == 0 && exchangeRate2 <= exchangeRate1)) {
+    console.log("1: " + exchangeRate1 + " 2: " + exchangeRate2 + " Choice:" + choice + " CORRECT");
     score += 1;
   } else {
+    console.log("1: " + exchangeRate1 + " 2: " + exchangeRate2 + " Choice:" + choice + " FALSE");
     score = 0;
   }
   scoreText.innerHTML = "Score: " + score;
@@ -106,12 +108,14 @@ function followingRequest(xml) {
   }, "2500");
 }
 
-function removeElement(elementID) {
+function pickButton(elementID) {
   if(elementID == 1) {
     choice = 0;
     document.getElementById('higher').remove();
+    sendRequest();
   } else if(elementID == 0) {
     choice = 1;
     document.getElementById('lower').remove();
+    sendRequest();
   }
 }
