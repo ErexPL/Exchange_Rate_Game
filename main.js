@@ -1,5 +1,7 @@
 let firstRequestBool = true;
 let animation = null;
+let choice = null;
+let score = 0;
 
 sendRequest();
 
@@ -70,6 +72,18 @@ function followingRequest(xml) {
   let sectionMiddle = document.getElementById("2");
   let sectionRight = document.getElementById("3");
 
+  let scoreText = document.getElementById("score");
+  if(exchangeRate3)
+  
+  if(choice == 0 && exchangeRate3 >= exchangeRate2) {
+    score += 1;
+  } else if(choice == 1 && exchangeRate3 <= exchangeRate2) {
+    score += 1;
+  } else {
+    score = 0;
+  }
+  scoreText.innerHTML = "Score: " + score;
+
   let pos = 0;
   clearInterval(animation);
   animation = setInterval(frame, 10);
@@ -93,11 +107,11 @@ function followingRequest(xml) {
 }
 
 function removeElement(elementID) {
-
   if(elementID == 1) {
+    choice = 0;
     document.getElementById('higher').remove();
   } else if(elementID == 0) {
+    choice = 1;
     document.getElementById('lower').remove();
   }
-
 }
