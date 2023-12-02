@@ -137,15 +137,7 @@ aside {
 #score {
     
     position: absolute;
-    top: 5%;
-    left: 2%;
-
-}
-
-#highscore {
-
-    position: absolute;
-    top: 1%;
+    top: 2%;
     left: 2%;
 
 }
